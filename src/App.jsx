@@ -24,7 +24,7 @@ function App() {
   }
 
   const bgOfPage = {
-    backgroundImage:`url("/public/bg-images/${bgChange}.jpg")`
+    backgroundImage:`url("/bg-images/${bgChange}.jpg")`
   };
 
   useEffect(() => {
