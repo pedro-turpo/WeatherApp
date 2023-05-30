@@ -32,7 +32,7 @@ function App() {
   }, [])
 
   return (
-    <main className={`bg-no-repeat bg-top bg-center-x bg-cover min-h-screen text-white`} style={bgOfPage}>
+    <main className={`bg-[url("/public/bg-images/01n.jpg")] bg-no-repeat bg-top bg-center-x bg-cover min-h-screen text-white`}>
       <Weather weatherInfo={weatherInfo}/>
     </main>
   )
