@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import Weather from "./components/Weather"
+import Loader from "./components/Loader";
 
 function App() {
 
@@ -33,7 +34,9 @@ function App() {
 
   return (
     <main className={`bg-no-repeat bg-top bg-center-x bg-cover min-h-screen text-white`} style={bgOfPage}>
-      <Weather weatherInfo={weatherInfo}/>
+      {
+        weatherInfo ? <Weather weatherInfo={weatherInfo}/> : <div className="flex flex-col justify-center items-center w-[100vw] h-[100vh]"><Loader /> <h2 className="text-[#3A8DEC] font-semibold">loading...</h2></div> 
+      }
     </main>
   )
 }
