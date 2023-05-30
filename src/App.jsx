@@ -24,7 +24,7 @@ function App() {
   }
 
   const bgOfPage = {
-    backgroundImage:`url("/public/bg-images/01n.jpg")`
+    backgroundImage:`url("/public/bg-images/${bgChange}.jpg")`
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
   }, [])
 
   return (
-    <main className={`bg-[url("/public/bg-images/01n.jpg")] bg-no-repeat bg-top bg-center-x bg-cover min-h-screen text-white`}>
+    <main className={`bg-no-repeat bg-top bg-center-x bg-cover min-h-screen text-white`} style={bgOfPage}>
       <Weather weatherInfo={weatherInfo}/>
     </main>
   )
