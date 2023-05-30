@@ -55,20 +55,20 @@ const Weather = ({ weatherInfo }) => {
                         <div className="grid grid-cols-[2.5fr_2fr_1fr] font-fRoboto font-bold">
                             <h3 className="pl-5">speed</h3>
                             <h3>{weatherInfo?.wind.speed}m/s</h3>
-                            <img src="/public/images/vector1.svg" alt="iconSpeed" />
+                            <img src="/images/vector1.svg" alt="iconSpeed" />
                         </div>
 
                         <div className="grid grid-cols-[2.5fr_2fr_1fr] font-fRoboto font-bold">
                             <h3 className="pl-5">humidity</h3>
                             <h3>{weatherInfo?.main.humidity}%</h3>
-                            <img src="/public/images/vector2.svg" alt="iconHumidity" />
+                            <img src="/images/vector2.svg" alt="iconHumidity" />
                         </div>
 
                         <div className="grid grid-cols-[2.5fr_2fr_1fr] font-fRoboto font-bold">
                             <h3 className="pl-5">pressure
                             </h3>
                             <h3>{weatherInfo?.main.pressure}hPa</h3>
-                            <img src="/public/images/vector3.svg" alt="iconPressure" />
+                            <img src="/images/vector3.svg" alt="iconPressure" />
                         </div>
 
                     </div>
