@@ -19,7 +19,7 @@ const Weather = ({ weatherInfo }) => {
     }
 
     return (
-        <section className="min-h-screen grid grid-rows-[1fr_5fr_1fr] h-[0] md:text-[18px]">
+        <section className="min-h-screen grid grid-rows-[1fr_5fr_1fr] h-[0] md:text-[18px] bg-black/40">
             {/* Seccion de Busqueda */}
 
             <div className=" flex justify-center items-end pb-[10px] md:mb-[-50px]">
