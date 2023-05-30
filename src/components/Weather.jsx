@@ -38,7 +38,7 @@ const Weather = ({ weatherInfo }) => {
                         <span className="font-fRoboto font-bold pt-[20px] text-xl">{weatherInfo?.name}, {weatherInfo?.sys.country}</span>
                         <h2 className="text-[80px] mt-[-20px]">{isCelsius ? `${kelvinToCelsius(weatherInfo?.main.temp)}` : `${kelvinToFahrenheit(weatherInfo?.main.temp)}`}</h2>
                         <div className="mt-[-25px] h-[150px] w-[150px] flex justify-center items-center md:w-[250px] md:h-[180px]">
-                            <img className="w-[100%] " src={`/icons/${weatherInfo?.weather[0].icon}.png`} alt="icon of day" />
+                            <img className="w-[60%] " src={`/icons/${weatherInfo?.weather[0].icon}.png`} alt="icon of day" />
                         </div>
                         <h2 className="font-fRoboto font-bold pb-2 mt-[-20px] md:mt-[auto]">{weatherInfo?.weather[0].description}</h2>
                     </div>
