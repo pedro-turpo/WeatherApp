@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { kelvinToCelsius, kelvinToFahrenheit } from "../utils/temp"
+import axios from "axios"
 
-const Weather = ({ weatherInfo }) => {
-
-    console.log(weatherInfo)
+const Weather = ({ weatherInfo, API_KEY, setWeatherInfo, setBgChange}) => {
     const [isCelsius, setIsCelsius] = useState(true)
 
     const handleChange = () => {
@@ -17,19 +16,34 @@ const Weather = ({ weatherInfo }) => {
             return 'Change to °C'
         }
     }
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const resultado = e.target.searchCity.value
+        
+        axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${resultado}&appid=${API_KEY}`)
+            .then(({ data }) => {
+                setWeatherInfo(data)
+                setBgChange(data.weather[0].icon)
+                e.target.searchCity.value = ''
+            })
+            .catch((error) => console.log(error))
+
+    }
 
     return (
         <section className="min-h-screen grid grid-rows-[1fr_5fr_1fr] h-[0] md:text-[18px] bg-black/40">
             {/* Seccion de Busqueda */}
 
-            <div className=" flex justify-center items-end pb-[10px] md:mb-[-50px]">
-                <form>
-                    <input className="h-[35px] w-[250px] rounded-[10px_0_0_10px] text-black px-3 md:h-[40px] md:w-[280px]" type="text" placeholder="Working in this..."/>
+            <div className=" flex justify-center items-end pb-[10px] font-fRoboto text-[14px]">
+                <form onSubmit={handleSubmit}>
+                    <input id="searchCity" className="h-[35px] w-[250px] rounded-[10px_0_0_10px] text-black px-3 md:h-[40px] md:w-[280px] outline-none pl-[20px]" type="text" placeholder="Search a city" autoComplete="off"/>
                     <button className="bg-[#3A8DEC] h-[35px] w-[30px] rounded-[0_10px_10px_0] md:h-[40px] md:w-[35px]"><i className='bx bx-search-alt' ></i></button>
                 </form>
             </div>
 
-            {/* Seccion de cuerpo */}
+            {/* Seccion del cuerpo de la aplicacion */}
 
             <article className="grid grid-rows-[6fr_4fr] md:grid-cols-2 md:grid-rows-1">
                 {/* Descripcion, temperatura & imagen */}
@@ -43,7 +57,7 @@ const Weather = ({ weatherInfo }) => {
                         <h2 className="font-fRoboto font-bold pb-2 mt-[-20px] md:mt-[auto]">{weatherInfo?.weather[0].description}</h2>
                     </div>
 
-                    
+
 
                 </div>
 
